@@ -61,17 +61,17 @@
 		  <tr>
         <td><% if @user == current_user %>
           <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image100x100.jpg" %><br>
-          <%= @book.user.name %>
+          <%= @book_show.user.name %>
           <% else %>
           <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image40x40.jpg" %><br>
           <%= link_to user_path(@user), class: "user_#{(@user.id)}" do %><%= @book.user.name %><% end %>
           <% end %>
         </td>
-        <td><%= @book.title %></td>
-        <td><%= @book.opinion %></td>
-        <% if @book.user == current_user %>
-          <td><%= link_to edit_book_path(@book), class: "edit_book_#{(@book.id)}" do %><span  class="btn-sm btn-success">Edit</span><% end %></td>
-          <td><%= link_to book_path(@book), class: "destroy_book_#{(@book.id)}", method: :delete, "data-confirm" => "本当に削除しますか？" do %><span  class="btn-sm btn-danger">Destroy</span><% end %></td>
+        <td><%= @book_show.title %></td>
+        <td><%= @book_show.opinion %></td>
+        <% if @book_show.user == current_user %>
+          <td><%= link_to edit_book_path(@book_show), class: "edit_book_#{(@book_show.id)}" do %><span  class="btn-sm btn-success">Edit</span><% end %></td>
+          <td><%= link_to book_path(@book_show), class: "destroy_book_#{(@book_show.id)}", method: :delete, "data-confirm" => "本当に削除しますか？" do %><span  class="btn-sm btn-danger">Destroy</span><% end %></td>
           <% end %>
       </tr>
     </table>
